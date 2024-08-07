@@ -12,10 +12,6 @@
     "dist/"
   ],
   "types": "./dist/src/lib.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:vue-leaflet/vue-leaflet.git"
-  },
   "scripts": {
     "dev": "vite",
     "test": "vitest --coverage",
@@ -70,18 +66,5 @@
     "vitest": "~0.29.0",
     "vue-router": "^4.0.0-rc.5",
     "vue-tsc": "^1.0.24"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint"
-    ],
-    "*.vue": [
-      "eslint"
-    ]
   }
 }

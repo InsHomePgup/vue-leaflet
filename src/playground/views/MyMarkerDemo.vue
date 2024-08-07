@@ -14,7 +14,6 @@
   </l-map>
 </template>
 <script setup lang="ts">
-import type L from "leaflet";
 import type { LatLngTuple } from "leaflet";
 import { ref } from "vue";
 
@@ -22,23 +21,9 @@ import { LMap, LMyMarker, LTileLayer } from "@src/components";
 
 const zoom = ref(2);
 const coordinates = ref<LatLngTuple>([50, 50]);
-function markerReady(event) {
+function markerReady(event: any) {
   console.log("marker ready", event);
 }
-// export default {
-//   components: {
-//     LMap,
-//     LTileLayer,
-//     // LMarker,
-//     LMyMarker,
-//   },
-//   data() {
-//     return {
-//       zoom: 2,
-//       coordinates: [50, 50] as L.LatLngExpression,
-//     };
-//   },
-// };
 </script>
 
 <style></style>
