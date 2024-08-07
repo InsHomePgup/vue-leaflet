@@ -83,12 +83,19 @@ export default defineComponent({
       if (shouldBlankIcon(options, context)) {
         options.icon = divIcon({ className: "" });
       }
-      leafletObject.value = markRaw<L.Marker>(marker(props.latLng, options));
 
-      const { listeners } = remapEvents(context.attrs);
-      leafletObject.value.on(listeners);
+      leafletObject.value = markRaw<L.Marker>(marker(props.latLng, options)); // 创建marker ,使用经纬度 + options
 
-      leafletObject.value.on("move", eventHandlers.moveHandler);
+      /**
+       * markRaw  Marks an object so that it will never be converted to a proxy. Returns the object itself.
+       * 标记一个对象不会被转换成proxy对象,并且返回对象本身
+       */
+
+      // console.log("context.attrs", context);
+      const { listeners, attrs } = remapEvents(context.attrs);
+      console.log("当前添加的事件监听===", listeners, attrs);
+      leafletObject.value.on(listeners); // 监听marker上面的事件,从attr获取到的监听的事件
+      leafletObject.value.on("move", eventHandlers.moveHandler); // 监听move
       propsBinder(methods, leafletObject.value, props);
       addLayer({
         ...props,

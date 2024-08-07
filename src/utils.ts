@@ -77,6 +77,8 @@ export const propsToLeafletOptions = <T>(
   return output as T;
 };
 
+// LeafletEventHandlerFnMap 类型,地图函数
+
 export const remapEvents = (contextAttrs: Data): ListenersAndAttrs => {
   const listeners: L.LeafletEventHandlerFnMap = {};
   const attrs: Data = {};
