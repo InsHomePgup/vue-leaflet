@@ -13,7 +13,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: fileURLToPath(new URL("./src/lib.ts", import.meta.url)),
+      entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
       formats: ["es", "cjs", "umd"],
       name: "vue-leaflet",
       fileName: (fmt) => `vue-leaflet.${fmt}.js`,

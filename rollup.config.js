@@ -2,7 +2,7 @@ import commonjs from "rollup-plugin-commonjs";
 import VuePlugin from "rollup-plugin-vue";
 
 export default {
-  input: "./src/lib.js",
+  input: "./src/index.ts",
   output: [
     {
       file: "dist/vue-leaflet.esm.js",
