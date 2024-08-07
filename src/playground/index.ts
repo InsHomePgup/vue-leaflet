@@ -45,6 +45,14 @@ const routes = [
   { path: "/geo-json", component: () => import("./views/GeoJsonDemo.vue") },
   { path: "/icon", component: () => import("./views/IconDemo.vue") },
   { path: "/marker", component: () => import("./views/MarkerDemo.vue") },
+  {
+    path: "/myMarker",
+    component: () => import("./views/MyMarkerDemo.vue"),
+  },
+  {
+    path: "/marker-cluster",
+    component: () => import("./views/MarkerClusterDemo.vue"),
+  },
   { path: "/tile-layer", component: () => import("./views/TileLayerDemo.vue") },
   {
     path: "/image-overlay",

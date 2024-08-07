@@ -38,7 +38,7 @@ import {
  * Marker component, lets you add and personalize markers on the map
  */
 export default defineComponent({
-  name: "LMarker", // 注册组件name
+  name: "LMyMarker", // 注册组件name
   props: markerProps, // 注册组件props
   setup(props, context) {
     const leafletObject = ref<L.Marker>(); // 创建leaflet 对象
@@ -47,6 +47,9 @@ export default defineComponent({
     const useGlobalLeaflet = inject(UseGlobalLeafletInjection); // 是否使用window下面的Leaflet
     const addLayer = assertInject(AddLayerInjection); // 安全注入
 
+    /**
+     * 提供三个HTML元素
+     */
     provide(
       CanSetParentHtmlInjection,
       () => !!leafletObject.value?.getElement()
@@ -63,6 +66,7 @@ export default defineComponent({
       (newIcon: L.DivIcon | L.Icon) =>
         leafletObject.value?.setIcon && leafletObject.value.setIcon(newIcon)
     );
+
     const { options, methods } = setupMarker(props, leafletObject, context);
 
     const eventHandlers = {
@@ -96,6 +100,8 @@ export default defineComponent({
     });
 
     onBeforeUnmount(() => cancelDebounces(eventHandlers));
+
+    console.log("leaflet marker注册=====", ready, leafletObject);
 
     return { ready, leafletObject };
   },

@@ -38,14 +38,14 @@ import {
  * Marker component, lets you add and personalize markers on the map
  */
 export default defineComponent({
-  name: "LMarker", // 注册组件name
-  props: markerProps, // 注册组件props
+  name: "LMarkerCluster",
+  props: markerProps,
   setup(props, context) {
-    const leafletObject = ref<L.Marker>(); // 创建leaflet 对象
-    const ready = ref(false); // 渲染完成标记
+    const leafletObject = ref<L.Marker>();
+    const ready = ref(false);
 
-    const useGlobalLeaflet = inject(UseGlobalLeafletInjection); // 是否使用window下面的Leaflet
-    const addLayer = assertInject(AddLayerInjection); // 安全注入
+    const useGlobalLeaflet = inject(UseGlobalLeafletInjection);
+    const addLayer = assertInject(AddLayerInjection);
 
     provide(
       CanSetParentHtmlInjection,
@@ -70,8 +70,6 @@ export default defineComponent({
     };
 
     onMounted(async () => {
-      console.log("注入的内容=====", useGlobalLeaflet);
-
       const { marker, divIcon }: typeof L = useGlobalLeaflet
         ? WINDOW_OR_GLOBAL.L
         : await import("leaflet/dist/leaflet-src.esm");
@@ -94,7 +92,6 @@ export default defineComponent({
       ready.value = true;
       nextTick(() => context.emit("ready", leafletObject.value));
     });
-
     onBeforeUnmount(() => cancelDebounces(eventHandlers));
 
     return { ready, leafletObject };

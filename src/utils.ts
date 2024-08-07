@@ -113,6 +113,8 @@ export const resetWebpackIcon = async (Icon) => {
 };
 
 /**
+ *
+ *
  * Wrap a placeholder function and provide it with the given name.
  * The wrapper can later be updated with {@link updateLeafletWrapper}
  * to provide a different function.
@@ -145,6 +147,10 @@ export const WINDOW_OR_GLOBAL =
   (typeof global === "object" && global.global === global && global) ||
   globalThis;
 
+/**
+ *  注入包裹层,如果没有注入则抛出error
+ * @param key  注入key
+ */
 export const assertInject = <T>(key: InjectionKey<T>) => {
   const value = inject<T>(key);
   if (value === undefined) {

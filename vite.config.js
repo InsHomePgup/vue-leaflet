@@ -19,9 +19,9 @@ export default defineConfig({
       fileName: (fmt) => `vue-leaflet.${fmt}.js`,
     },
     rollupOptions: {
-      external: ["vue", "leaflet", /^leaflet\/.*/],
+      external: ["vue", "leaflet", /^leaflet\/.*/], // 排除项,不打包进来的项目
       output: {
-        // Global variables for use in the UMD build
+        // Global variables for use in the UMD build   指定外部依赖
         globals: {
           vue: "Vue",
           leaflet: "L",

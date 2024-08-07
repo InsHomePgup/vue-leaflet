@@ -185,7 +185,10 @@ export default defineComponent({
     const registerLayerControl = provideLeafletWrapper(
       RegisterLayerControlInjection
     );
-    provide(UseGlobalLeafletInjection, props.useGlobalLeaflet);
+
+    // console.log("addLayer------", addLayer);
+
+    provide(UseGlobalLeafletInjection, props.useGlobalLeaflet); // 注入是否使用全局的leaflet
 
     const zoomPanOptions = computed(() => {
       const result: L.ZoomPanOptions = {};

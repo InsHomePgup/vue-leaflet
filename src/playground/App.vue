@@ -17,6 +17,8 @@
       <router-link to="/geo-json">GeoJSON</router-link>
       <router-link to="/icon">Icon</router-link>
       <router-link to="/marker">Marker</router-link>
+      <router-link to="/myMarker">myMarker</router-link>
+      <router-link to="/marker-cluster">MarkerCluster</router-link>
       <router-link to="/polygon">Polygon</router-link>
       <router-link to="/polyline">Polyline</router-link>
       <router-link to="/popups">Popups</router-link>
